@@ -304,6 +304,7 @@ namespace Game {
 			this->Controls->Add(this->Box5);
 			this->Controls->Add(this->Box4);
 			this->Controls->Add(this->Box3);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Kó³ko i krzy¿yk";
