@@ -305,6 +305,7 @@ namespace Game {
 			this->Controls->Add(this->Box4);
 			this->Controls->Add(this->Box3);
 			this->Name = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Kó³ko i krzy¿yk";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Box3))->EndInit();
