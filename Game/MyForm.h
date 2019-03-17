@@ -55,6 +55,10 @@ namespace Game {
 	private: System::Windows::Forms::PictureBox^  Start;
 	private: System::Windows::Forms::PictureBox^  Tura;
 	private: System::Windows::Forms::PictureBox^  Counter;
+	private: System::Windows::Forms::PictureBox^  Button;
+
+
+
 
 
 
@@ -97,6 +101,7 @@ namespace Game {
 			this->Start = (gcnew System::Windows::Forms::PictureBox());
 			this->Tura = (gcnew System::Windows::Forms::PictureBox());
 			this->Counter = (gcnew System::Windows::Forms::PictureBox());
+			this->Button = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Box3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Box6))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Box5))->BeginInit();
@@ -109,6 +114,7 @@ namespace Game {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Start))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Tura))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Counter))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Button))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// Box3
@@ -264,12 +270,28 @@ namespace Game {
 			this->Counter->TabIndex = 14;
 			this->Counter->TabStop = false;
 			// 
+			// Button
+			// 
+			this->Button->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->Button->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Button.Image")));
+			this->Button->ImageLocation = L"";
+			this->Button->Location = System::Drawing::Point(368, 62);
+			this->Button->Margin = System::Windows::Forms::Padding(0);
+			this->Button->Name = L"Button";
+			this->Button->Size = System::Drawing::Size(160, 116);
+			this->Button->TabIndex = 15;
+			this->Button->TabStop = false;
+			this->Button->Click += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->Button->MouseLeave += gcnew System::EventHandler(this, &MyForm::Button_MouseLeave);
+			this->Button->MouseHover += gcnew System::EventHandler(this, &MyForm::Button_MouseHover);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(554, 763);
+			this->Controls->Add(this->Button);
 			this->Controls->Add(this->Counter);
 			this->Controls->Add(this->Tura);
 			this->Controls->Add(this->Start);
@@ -297,10 +319,12 @@ namespace Game {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Start))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Tura))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Counter))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Button))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+
 
 		char p1, p2, p3, p4, p5, p6, p7, p8, p9;
 		char who;
@@ -317,10 +341,45 @@ namespace Game {
 				(p1 == p5 && p5 == p9 && p1 != 'n') ||
 				(p3 == p5 && p5 == p7 && p3 != 'n'))
 			{
-				char * w;
-				if (who == 'w') w = "Wygrywa kó³ko!";
-				else w = "Wygrywa krzy¿yk!";
-				//Application->MessageBox(w, "Koniec gry", MB_OK);
+				if (who == 'o')
+				{
+					MessageBox::Show("Wygrywa krzy¿yk! Koniec gry!", "MessageBox Test", MessageBoxButtons::OK, MessageBoxIcon::Information);
+					Box1->Enabled = false;
+					Box2->Enabled = false;
+					Box3->Enabled = false;
+					Box4->Enabled = false;
+					Box5->Enabled = false;
+					Box6->Enabled = false;
+					Box7->Enabled = false;
+					Box8->Enabled = false;
+					Box9->Enabled = false;
+				}
+				if (who == 'x')
+				{
+					MessageBox::Show("Wygrywa kó³ko! Koniec gry!", "MessageBox Test", MessageBoxButtons::OK, MessageBoxIcon::Information);
+					Box1->Enabled = false;
+					Box2->Enabled = false;
+					Box3->Enabled = false;
+					Box4->Enabled = false;
+					Box5->Enabled = false;
+					Box6->Enabled = false;
+					Box7->Enabled = false;
+					Box8->Enabled = false;
+					Box9->Enabled = false;
+				}
+			}
+			else if (p1 != 'n'&&p2 != 'n'&&p3 != 'n'&&p4 != 'n'&&p5 != 'n'&&p6 != 'n'&&p7 != 'n'&&p8 != 'n'&&p9 != 'n')
+			{
+					MessageBox::Show("Remis! Koniec gry!", "MessageBox Test", MessageBoxButtons::OK, MessageBoxIcon::Information);
+					Box1->Enabled = false;
+					Box2->Enabled = false;
+					Box3->Enabled = false;
+					Box4->Enabled = false;
+					Box5->Enabled = false;
+					Box6->Enabled = false;
+					Box7->Enabled = false;
+					Box8->Enabled = false;
+					Box9->Enabled = false;	
 			}
 		}
 		void licz(int licznik)
@@ -365,10 +424,32 @@ namespace Game {
 
 
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+		Box1->Image = Image::FromFile("img/empty.jpg");
+		Box2->Image = Image::FromFile("img/empty.jpg");
+		Box3->Image = Image::FromFile("img/empty.jpg");
+		Box4->Image = Image::FromFile("img/empty.jpg");
+		Box5->Image = Image::FromFile("img/empty.jpg");
+		Box6->Image = Image::FromFile("img/empty.jpg");
+		Box7->Image = Image::FromFile("img/empty.jpg");
+		Box8->Image = Image::FromFile("img/empty.jpg");
+		Box9->Image = Image::FromFile("img/empty.jpg");
+
 		p1 = 'n'; p2 = 'n'; p3 = 'n';
 		p4 = 'n'; p5 = 'n'; p6 = 'n';
 		p7 = 'n'; p8 = 'n'; p9 = 'n';
 		who = 'o';
+		Counter->Image = Image::FromFile("img/0.jpg");
+		Tura->Image = Image::FromFile("img/circle_small.jpg");
+		licznik = 0;
+		Box1->Enabled = true;
+		Box2->Enabled = true;
+		Box3->Enabled = true;
+		Box4->Enabled = true;
+		Box5->Enabled = true;
+		Box6->Enabled = true;
+		Box7->Enabled = true;
+		Box8->Enabled = true;
+		Box9->Enabled = true;
 	}
 	private: System::Void Box1_Click(System::Object^  sender, System::EventArgs^  e) {
 		if (p1 == 'n')
@@ -389,8 +470,8 @@ namespace Game {
 			}
 			licznik++;
 			Box1->Enabled = false;
-			check();
 			licz(licznik);
+			check();
 		}
 	}
 	private: System::Void Box2_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -412,8 +493,8 @@ namespace Game {
 			}
 			licznik++;
 			Box2->Enabled = false;
-			check();
 			licz(licznik);
+			check();
 		}
 	}
 	private: System::Void Box3_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -435,8 +516,8 @@ namespace Game {
 			}
 			licznik++;
 			Box3->Enabled = false;
-			check();
 			licz(licznik);
+			check();
 		}
 	}
 	private: System::Void Box4_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -458,8 +539,8 @@ namespace Game {
 			}
 			licznik++;
 			Box4->Enabled = false;
-			check();
 			licz(licznik);
+			check();
 		}
 	}
 	private: System::Void Box5_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -481,8 +562,8 @@ namespace Game {
 			}
 			licznik++;
 			Box5->Enabled = false;
-			check();
 			licz(licznik);
+			check();
 		}
 	}
 	private: System::Void Box6_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -504,8 +585,8 @@ namespace Game {
 			}
 			licznik++;
 			Box6->Enabled = false;
-			check();
 			licz(licznik);
+			check();
 		}
 	}
 	private: System::Void Box7_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -527,8 +608,8 @@ namespace Game {
 			}
 			licznik++;
 			Box7->Enabled = false;
-			check();
 			licz(licznik);
+			check();
 		}
 	}
 	private: System::Void Box8_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -550,8 +631,8 @@ namespace Game {
 			}
 			licznik++;
 			Box8->Enabled = false;
-			check();
 			licz(licznik);
+			check();
 		}
 	}
 	private: System::Void Box9_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -573,9 +654,15 @@ namespace Game {
 			}
 			licznik++;
 			Box9->Enabled = false;
-			check();
 			licz(licznik);
+			check();
 		}
 	}
-	};
+private: System::Void Button_MouseHover(System::Object^  sender, System::EventArgs^  e) {
+	Button->Image = Image::FromFile("img/new_game_h.jpg");
+}
+private: System::Void Button_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
+	Button->Image = Image::FromFile("img/new_game.jpg");
+}
+};
 }
