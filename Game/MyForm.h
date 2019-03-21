@@ -345,7 +345,7 @@ namespace Game {
 			{
 				if (who == 'o')
 				{
-					MessageBox::Show("Wygrywa krzy¿yk! Koniec gry!", "MessageBox Test", MessageBoxButtons::OK, MessageBoxIcon::Information);
+					MessageBox::Show("Wygrywa krzy¿yk! Koniec gry!", "Wynik", MessageBoxButtons::OK, MessageBoxIcon::Information);
 					Box1->Enabled = false;
 					Box2->Enabled = false;
 					Box3->Enabled = false;
@@ -358,7 +358,7 @@ namespace Game {
 				}
 				if (who == 'x')
 				{
-					MessageBox::Show("Wygrywa kó³ko! Koniec gry!", "MessageBox Test", MessageBoxButtons::OK, MessageBoxIcon::Information);
+					MessageBox::Show("Wygrywa kó³ko! Koniec gry!", "Wynik", MessageBoxButtons::OK, MessageBoxIcon::Information);
 					Box1->Enabled = false;
 					Box2->Enabled = false;
 					Box3->Enabled = false;
@@ -372,7 +372,7 @@ namespace Game {
 			}
 			else if (p1 != 'n'&&p2 != 'n'&&p3 != 'n'&&p4 != 'n'&&p5 != 'n'&&p6 != 'n'&&p7 != 'n'&&p8 != 'n'&&p9 != 'n')
 			{
-					MessageBox::Show("Remis! Koniec gry!", "MessageBox Test", MessageBoxButtons::OK, MessageBoxIcon::Information);
+					MessageBox::Show("Remis! Koniec gry!", "Wynik", MessageBoxButtons::OK, MessageBoxIcon::Information);
 					Box1->Enabled = false;
 					Box2->Enabled = false;
 					Box3->Enabled = false;
