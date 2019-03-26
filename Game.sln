@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj",
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Kółko i krzyżyk", "Kółko i krzyżyk\Kółko i krzyżyk.vdproj", "{BAA88A81-DB4A-46FE-AE82-2DD64A7ED6B3}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Kółko i krzyżyk the game", "Kółko i krzyżyk the game\Kółko i krzyżyk the game.vdproj", "{78AC1E0C-B71C-4BE5-B671-2764E647B017}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -27,6 +29,10 @@ Global
 		{BAA88A81-DB4A-46FE-AE82-2DD64A7ED6B3}.Debug|x86.ActiveCfg = Debug
 		{BAA88A81-DB4A-46FE-AE82-2DD64A7ED6B3}.Release|x64.ActiveCfg = Release
 		{BAA88A81-DB4A-46FE-AE82-2DD64A7ED6B3}.Release|x86.ActiveCfg = Release
+		{78AC1E0C-B71C-4BE5-B671-2764E647B017}.Debug|x64.ActiveCfg = Debug
+		{78AC1E0C-B71C-4BE5-B671-2764E647B017}.Debug|x86.ActiveCfg = Debug
+		{78AC1E0C-B71C-4BE5-B671-2764E647B017}.Release|x64.ActiveCfg = Release
+		{78AC1E0C-B71C-4BE5-B671-2764E647B017}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
